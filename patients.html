@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patients - Healthcare Analytics</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f8fb;
+            color: #333;
+        }
+
+        nav {
+            background: #0d6efd;
+            padding: 18px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #0d6efd;
+        }
+
+        .table-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-top: 25px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th {
+            background: #0d6efd;
+            color: white;
+            padding: 14px;
+            text-align: left;
+        }
+
+        td {
+            padding: 14px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background: #f1f6ff;
+        }
+
+        .status {
+            background: #198754;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 13px;
+        }
+
+        .empty {
+            text-align: center;
+            color: #777;
+            padding: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/patients">Patients</a>
+    <a href="/hospitals">Hospitals</a>
+    <a href="/analysis">Analysis</a>
+</nav>
+
+<div class="container">
+
+    <h1>Patient Records</h1>
+
+    <p>
+        View patient information and healthcare records.
+    </p>
+
+    <div class="table-box">
+
+        <h2>Patient Data</h2>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                   
