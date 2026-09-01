@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Analysis - Healthcare Analytics</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f8fb;
+            color: #333;
+        }
+
+        nav {
+            background: #0d6efd;
+            padding: 18px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #0d6efd;
+        }
+
+        .chart-box {
+            background: white;
+            padding: 25px;
+            margin-top: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .chart-container {
+            position: relative;
+            height: 350px;
+        }
+
+        .insights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .insight-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .insight-card h2 {
+            color: #0d6efd;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/patients">Patients</a>
+    <a href="/hospitals">Hospitals</a>
+    <a href="/analysis">Analysis</a>
+</nav>
+
+<div class="container">
+
+    <h1>Healthcare Data Analysis</h1>
+
+    <p>
+        Analyze patient and hospital data using charts and statistics.
+    </p>
+
+    <div class="chart-box">
+
+        <h2>Patient Statistics</h2>
+
+        <div class="chart-container">
+            <canvas id="patientChart"></canvas>
+        </div>
+
+    </div>
+
+    <div class="chart-box">
+
+        <h2>Hospital Statistics</h2>
+
+        <div class="chart-container">
+            <canvas id="hospitalChart"></canvas>
+        </div>
+
+    </div>
+
+    <div class="insights">
+
+        <div class="insight-card">
+
+            <h2>📊 Patient Analysis</h2>
+
+            <p>
+                Patient data can be analyzed to understand
+                demographics, diagnoses and healthcare trends.
+            </p>
+
+        </div>
+
+        <div class="insight-card">
+
+            <h2>🏥 Hospital Analysis</h2>
+
+            <p>
+                Hospital data can help monitor resources,
+                doctors, beds and patient admissions.
+            </p>
+
+        </div>
+
+        <div class="insight-card">
+
+            <h2>💡 Data Insights</h2>
+
+            <p>
+                Analytics can help identify patterns and
+                support better healthcare decisions.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+    const patientChart = new Chart(
+        document.getElementById("patientChart"),
+        {
+            type: "bar",
+
+            data: {
+                labels: [
+                    "Total Patients",
+                    "Hospital Visits",
+                    "Active Cases",
+                    "Admissions"
+                ],
+
+                datasets: [{
+                    label: "Patient Statistics",
+
+                    data: [
+                        {{ total_patients|default(2450) }},
+                        {{ hospital_visits|default(3820) }},
+                        {{ active_cases|default(315) }},
+                        {{ total_admissions|default(1200) }}
+                    ]
+                }]
+            },
+
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        }
+    );
+
+
+    const hospitalChart = new Chart(
+        document.getElementById("hospitalChart"),
+        {
+            type: "doughnut",
+
+            data: {
+                labels: [
+                    "General",
+                    "Specialty",
+                    "Emergency",
+                    "Other"
+                ],
+
+                datasets: [{
+                    label: "Hospital Departments",
+
+                    data: [
+                        {{ general_hospitals|default(40) }},
+                        {{ specialty_hospitals|default(25) }},
+                        {{ emergency_hospitals|default(20) }},
+                        {{ other_hospitals|default(15) }}
+                    ]
+                }]
+            },
+
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        }
+    );
+
+</script>
+
+</body>
+</html>
